@@ -1,0 +1,63 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "EIP712",
+  "sourceName": "contracts/lib/EIP712.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "FEE_TYPEHASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ORACLE_ORDER_TYPEHASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ORDER_TYPEHASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ROOT_TYPEHASH",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061012b806100206000396000f3fe6080604052348015600f57600080fd5b506004361060465760003560e01c80631d97c9bb14604b57806331e6d0fe1460835780634832ede11460a9578063f973a2091460cf575b600080fd5b60717fd71080023d2f293ed0723dc287d6b2d4e7d27d0b6c12928e300721b7c78c748581565b60405190815260200160405180910390f35b60717f5bcf4b2eaff7fcdeb49f0bda53026b9ebdd93db566fe4c447125cb899e598c9081565b60717f05b43f730f67de334a342883f867101fc7ef3361dfdff4a29a7aa97e0920ef7a81565b60717f376bfbc394a7ba7fdf10f224572cef371358e3053e362f4554fcd2ad56329b3f8156fea264697066735822122024a125f61759e6dcd19f6e9886f89dc6d81bc91e131c07f3123d3329696709f564736f6c63430008110033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060465760003560e01c80631d97c9bb14604b57806331e6d0fe1460835780634832ede11460a9578063f973a2091460cf575b600080fd5b60717fd71080023d2f293ed0723dc287d6b2d4e7d27d0b6c12928e300721b7c78c748581565b60405190815260200160405180910390f35b60717f5bcf4b2eaff7fcdeb49f0bda53026b9ebdd93db566fe4c447125cb899e598c9081565b60717f05b43f730f67de334a342883f867101fc7ef3361dfdff4a29a7aa97e0920ef7a81565b60717f376bfbc394a7ba7fdf10f224572cef371358e3053e362f4554fcd2ad56329b3f8156fea264697066735822122024a125f61759e6dcd19f6e9886f89dc6d81bc91e131c07f3123d3329696709f564736f6c63430008110033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

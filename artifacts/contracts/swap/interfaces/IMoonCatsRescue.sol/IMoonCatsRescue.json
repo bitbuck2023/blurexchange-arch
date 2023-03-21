@@ -1,0 +1,103 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IMoonCatsRescue",
+  "sourceName": "contracts/swap/interfaces/IMoonCatsRescue.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes5",
+          "name": "catId",
+          "type": "bytes5"
+        }
+      ],
+      "name": "acceptAdoptionOffer",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes5",
+          "name": "catId",
+          "type": "bytes5"
+        }
+      ],
+      "name": "catOwners",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes5",
+          "name": "catId",
+          "type": "bytes5"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "giveCat",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes5",
+          "name": "catId",
+          "type": "bytes5"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "makeAdoptionOfferToAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "rescueIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "rescueOrder",
+      "outputs": [
+        {
+          "internalType": "bytes5",
+          "name": "catId",
+          "type": "bytes5"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

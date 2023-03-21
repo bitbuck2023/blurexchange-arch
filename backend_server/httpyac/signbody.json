@@ -1,0 +1,15 @@
+{
+        "trader": "0x97b43255227669684ef5c586958044b6a8a17fe2",
+        "side": 0,
+        "matchingPolicy": "0x0000000000b92d5d043faf7cecf7e2ee6aaed232",
+        "collection": "0xeb3a9a839dfeeaf71db1b4ed6a8ae0ccb171b227",
+        "tokenId": "0",
+        "amount": "1",
+        "paymentToken": "0x0000000000a39bb272e79075ade125fd351887ac",
+        "price": "150000000000000000",
+        "listingTime": 1677496669,
+        "expirationTime": 1709032668,
+        "fees": [],
+        "extraParams": "0x01",
+        "nonce": "0"
+}

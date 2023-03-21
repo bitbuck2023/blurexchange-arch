@@ -1,0 +1,6 @@
+{
+    "solidity.defaultCompiler": "remote",
+    "solidity.compileUsingLocalVersion": "/Users/cx/cx/code/self/blockchain/Learn/blurexchange-contract/soljson-v0.8.17+commit.8df45f5f.js",
+    // "solidity.packageDefaultDependenciesDirectory": "node_modules",
+    // "solidity.packageDefaultDependenciesContractsDirectory": "",
+}

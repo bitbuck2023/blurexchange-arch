@@ -1,0 +1,4 @@
+POST http://localhost:3000/sign
+Content-Type: application/json
+
+< ./signbody.json

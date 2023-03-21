@@ -1,0 +1,415 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "StandardPolicyERC721",
+  "sourceName": "contracts/policies/StandardPolicyERC721.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "enum Side",
+              "name": "side",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "matchingPolicy",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collection",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "listingTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expirationTime",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint16",
+                  "name": "rate",
+                  "type": "uint16"
+                },
+                {
+                  "internalType": "address payable",
+                  "name": "recipient",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct Fee[]",
+              "name": "fees",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "extraParams",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "makerAsk",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "enum Side",
+              "name": "side",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "matchingPolicy",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collection",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "listingTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expirationTime",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint16",
+                  "name": "rate",
+                  "type": "uint16"
+                },
+                {
+                  "internalType": "address payable",
+                  "name": "recipient",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct Fee[]",
+              "name": "fees",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "extraParams",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "takerBid",
+          "type": "tuple"
+        }
+      ],
+      "name": "canMatchMakerAsk",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum AssetType",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "enum Side",
+              "name": "side",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "matchingPolicy",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collection",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "listingTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expirationTime",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint16",
+                  "name": "rate",
+                  "type": "uint16"
+                },
+                {
+                  "internalType": "address payable",
+                  "name": "recipient",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct Fee[]",
+              "name": "fees",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "extraParams",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "makerBid",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "enum Side",
+              "name": "side",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "matchingPolicy",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collection",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "listingTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expirationTime",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint16",
+                  "name": "rate",
+                  "type": "uint16"
+                },
+                {
+                  "internalType": "address payable",
+                  "name": "recipient",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct Fee[]",
+              "name": "fees",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "extraParams",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "takerAsk",
+          "type": "tuple"
+        }
+      ],
+      "name": "canMatchMakerBid",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum AssetType",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610475806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80630813a7661461003b578063d5ec8c771461003b575b600080fd5b61004e6100493660046102c3565b610068565b60405161005f95949392919061033d565b60405180910390f35b60008080808061007e604087016020880161038a565b600181111561008f5761008f610327565b61009f6040890160208a0161038a565b60018111156100b0576100b0610327565b141580156100ed57506100c960e0870160c088016103b2565b6001600160a01b03166100e260e0890160c08a016103b2565b6001600160a01b0316145b8015610128575061010460808701606088016103b2565b6001600160a01b031661011d6080890160608a016103b2565b6001600160a01b0316145b801561013b575085608001358760800135145b80156101ae575060006101526101808901896103db565b90501180156101ae575061016a6101808801886103db565b600081811061017b5761017b610429565b9050013560f81c60f81b7effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916600160f81b145b8015610221575060006101c56101808801886103db565b905011801561022157506101dd6101808701876103db565b60008181106101ee576101ee610429565b9050013560f81c60f81b7effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916600160f81b145b801561023157508660a001356001145b801561024157508560a001356001145b801561027c575061025860608701604088016103b2565b6001600160a01b03166102716060890160408a016103b2565b6001600160a01b0316145b801561028f57508560e001358760e00135145b9760e088013597608001359650600195506000945092505050565b60006101a082840312156102bd57600080fd5b50919050565b600080604083850312156102d657600080fd5b823567ffffffffffffffff808211156102ee57600080fd5b6102fa868387016102aa565b9350602085013591508082111561031057600080fd5b5061031d858286016102aa565b9150509250929050565b634e487b7160e01b600052602160045260246000fd5b600060a08201905086151582528560208301528460408301528360608301526002831061037a57634e487b7160e01b600052602160045260246000fd5b8260808301529695505050505050565b60006020828403121561039c57600080fd5b8135600281106103ab57600080fd5b9392505050565b6000602082840312156103c457600080fd5b81356001600160a01b03811681146103ab57600080fd5b6000808335601e198436030181126103f257600080fd5b83018035915067ffffffffffffffff82111561040d57600080fd5b60200191503681900382131561042257600080fd5b9250929050565b634e487b7160e01b600052603260045260246000fdfea2646970667358221220e29c97436383aea6a11ec56336aa5d282032b8f8850f738c7974e3173245cd7964736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80630813a7661461003b578063d5ec8c771461003b575b600080fd5b61004e6100493660046102c3565b610068565b60405161005f95949392919061033d565b60405180910390f35b60008080808061007e604087016020880161038a565b600181111561008f5761008f610327565b61009f6040890160208a0161038a565b60018111156100b0576100b0610327565b141580156100ed57506100c960e0870160c088016103b2565b6001600160a01b03166100e260e0890160c08a016103b2565b6001600160a01b0316145b8015610128575061010460808701606088016103b2565b6001600160a01b031661011d6080890160608a016103b2565b6001600160a01b0316145b801561013b575085608001358760800135145b80156101ae575060006101526101808901896103db565b90501180156101ae575061016a6101808801886103db565b600081811061017b5761017b610429565b9050013560f81c60f81b7effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916600160f81b145b8015610221575060006101c56101808801886103db565b905011801561022157506101dd6101808701876103db565b60008181106101ee576101ee610429565b9050013560f81c60f81b7effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916600160f81b145b801561023157508660a001356001145b801561024157508560a001356001145b801561027c575061025860608701604088016103b2565b6001600160a01b03166102716060890160408a016103b2565b6001600160a01b0316145b801561028f57508560e001358760e00135145b9760e088013597608001359650600195506000945092505050565b60006101a082840312156102bd57600080fd5b50919050565b600080604083850312156102d657600080fd5b823567ffffffffffffffff808211156102ee57600080fd5b6102fa868387016102aa565b9350602085013591508082111561031057600080fd5b5061031d858286016102aa565b9150509250929050565b634e487b7160e01b600052602160045260246000fd5b600060a08201905086151582528560208301528460408301528360608301526002831061037a57634e487b7160e01b600052602160045260246000fd5b8260808301529695505050505050565b60006020828403121561039c57600080fd5b8135600281106103ab57600080fd5b9392505050565b6000602082840312156103c457600080fd5b81356001600160a01b03811681146103ab57600080fd5b6000808335601e198436030181126103f257600080fd5b83018035915067ffffffffffffffff82111561040d57600080fd5b60200191503681900382131561042257600080fd5b9250929050565b634e487b7160e01b600052603260045260246000fdfea2646970667358221220e29c97436383aea6a11ec56336aa5d282032b8f8850f738c7974e3173245cd7964736f6c63430008110033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
