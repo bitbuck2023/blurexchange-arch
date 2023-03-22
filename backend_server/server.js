@@ -12,7 +12,7 @@ const errorHandler = (error, request, response, next) => {
     console.error(error)
     const status = error.status || 400
     response.status(status).send(error.message)
-  }
+}
 
 app.use(cors());
 app.use(express.json());
@@ -32,50 +32,55 @@ const NETWORK_NAME = 'abt';
 const contractDeployed = require(`${CONTRACT_DIR}/deployed.json`);
 const abi = new ethers.utils.AbiCoder();
 
-// function getAbi(contractName) {
-//     return require(`${CONTRACT_DIR}/abi/${NETWORK_NAME}/${contractName}.json`)
-// }
+const { Order, Fee, OracleOrder } = require('./libs/order_structs.js');
+const SIGN_TYPES_ORACLE = { OracleOrder, Order, Fee }
 
+const networkConfig = require('../configs/networks.js')[NETWORK_NAME];
+const oracleAccount = networkConfig['accounts'][0]
+const provider = new ethers.providers.JsonRpcProvider(networkConfig['url']);
+const oracleSigner = new ethers.Wallet(oracleAccount, provider);
+let BlurExchangeProxy = null;
+let DOMAIN_VALUE = null;
+ethers.getContractAt("BlurExchange", await getContractAddress('BlurExchangeProxy')).then((contract) => {
+    console.log('contract initialized')
+    BlurExchangeProxy = contract;
+    DOMAIN_VALUE = {
+        name: "Blur Exchange",
+        version: "1",
+        chainId: provider.network.config.chainId,
+        verifyingContract: BlurExchangeProxy.address
+    }
+});
 
-const { Order, Fee } = require('./libs/order_structs.js');
-const provider = new ethers.providers.JsonRpcProvider(require('../configs/networks.js')[NETWORK_NAME]['url']);
-const signer = new ethers.Wallet('2914cf6280044ac6cf9e385fa2f42e86b2697ae833cc397ef4defa94c5796464', provider);
-// const exchangeContract = getContract('BlurExchangeProxy');
+async function signOneOrder(order, signer) {
+    const blockNumber = provider.getBlockNumber();
+    let signature = await signer._signTypedData(DOMAIN_VALUE, SIGN_TYPES_ORACLE, { order, blockNumber })
 
-const SIGN_TYPES = {Order, Fee}
+    const r = signature.slice(0, 66);
+    const s = "0x" + signature.slice(66, 130);
+    const v = parseInt(signature.slice(130, 132), 16);
 
-const SIGN_DOMAIN = {
-    name: "Blur Exchange",
-    version: "1",
-    chainId: 1,
-    verifyingContract: contractDeployed[NETWORK_NAME]['BlurExchangeProxy']
-}
-
-async function signOneOrder(order) {
-    // console.log(Order)
-    console.log(order)
-    let sign = await signer._signTypedData(SIGN_DOMAIN, SIGN_TYPES, order)
-
-    const r = sign.slice(0, 66);
-    const s = "0x" + sign.slice(66, 130);
-    const v = parseInt(sign.slice(130, 132), 16);
+    const abi = new ethers.utils.AbiCoder();
     const rsv = abi.encode(["uint8", "bytes32", "bytes32"], [v, r, s]);
 
-    return rsv;
+    console.log({ signature, r, s, v, rsv, blockNumber });
+
+    return { signature, r, s, v, rsv, blockNumber }
 }
 
-async function signOrderWithMerklepath(merklePath, order) {
-    // console.log(Order)
-    console.log(order)
-    let sign = await signer._signTypedData(SIGN_DOMAIN, SIGN_TYPES, order)
+app.post('/sign_oracle', async (req, res) => {
+    let body = req.body;
 
-    const r = sign.slice(0, 66);
-    const s = "0x" + sign.slice(66, 130);
-    const v = parseInt(sign.slice(130, 132), 16);
-    const rsv = abi.encode(['bytes32[]',"uint8", "bytes32", "bytes32"], [merklePath, v, r, s]);
+    let order = body;
+    await fillInfo(order);
+    let sign = await signOneOrder(order, oracleSigner);
 
-    return rsv;
-}
+    res.json({
+        signature: sign,
+        body
+    });
+});
+
 
 async function fillInfo(order) {
     if (!order.salt) {
@@ -86,27 +91,25 @@ async function fillInfo(order) {
     }
 }
 
-app.post('/sign', async (req, res) => {
-    let body = req.body;
+async function signOrderWithMerklepath(merklePath, order) {
+    console.log(order)
+    let sign = await signer._signTypedData(SIGN_DOMAIN, SIGN_TYPES, order)
 
-    let order = body;
-    await fillInfo(order);
-    let sign = await signOneOrder(order);
+    const r = sign.slice(0, 66);
+    const s = "0x" + sign.slice(66, 130);
+    const v = parseInt(sign.slice(130, 132), 16);
+    const rsv = abi.encode(['bytes32[]', "uint8", "bytes32", "bytes32"], [merklePath, v, r, s]);
 
-    res.json({
-        signature: sign,
-        body
-    });
-});
+    return rsv;
+}
 
 app.post('/getpolicies', async (req, res) => {
     res.json({
         StandardPolicyERC721: contractDeployed[NETWORK_NAME]['StandardPolicyERC721'],
         StandardPolicyERC721Oracle: contractDeployed[NETWORK_NAME]['StandardPolicyERC1155'],
         StandardPolicyERC721Oracle: contractDeployed[NETWORK_NAME]['StandardPolicyERC1155'],
-
-});
-
+    });
+})
 
 app.post('/sign_bulk', async (req, res) => {
     let orderList = req.body;
@@ -114,7 +117,7 @@ app.post('/sign_bulk', async (req, res) => {
     let signObjList = await Promise.all(orderList.map(async (order) => {
         await fillInfo(order);
         const order_hash = ethers.utils._TypedDataEncoder.hash(SIGN_DOMAIN, SIGN_TYPES, value)
-        
+
         return {
             order_hash,
             body: order

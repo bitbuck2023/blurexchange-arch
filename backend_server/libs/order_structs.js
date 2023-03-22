@@ -22,5 +22,9 @@ module.exports = {
     Side: {
         BUY: 0,
         SELL: 1
-    }
+    },
+    OracleOrder : [
+        { name: "order", type: "Order" },
+        { name: "blockNumber", type: "uint256" },
+    ]
 }
